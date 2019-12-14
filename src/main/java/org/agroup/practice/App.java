@@ -7,7 +7,7 @@ public class App {
 	private static final Logger LOG = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) {
-		final String practiceToggle = "PracticeOne";
+		final String practiceToggle = "PracticeTwo";
 		LOG.info("practiceToggle: {}", practiceToggle);
 
 		if (practiceToggle.equals("PracticeOne")) {

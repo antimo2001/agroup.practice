@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -30,32 +29,13 @@ public class CarRhdmDeserializer extends RhdmDeserializer<Car> {
 	public Car deserialize(JsonParser parser, DeserializationContext context)
 			throws IOException, JsonProcessingException {
 		LOG.info("Enter method deserialize");
+
+		JsonNode jnResult = super.getResultNode(parser);
+
 		Car car = new Car();
-		ObjectCodec codec = parser.getCodec();
-		JsonNode node = codec.readTree(parser);
-
-		// try catch block
-		final String SUCCESS = "SUCCESS";
-		final String DEFAULT = "Default";
-		final String KEY = this.responseFactName;
-		String success = node.get("type").asText(DEFAULT);
-		String msg = node.get("msg").asText(DEFAULT);
-		
-		LOG.info("success/msg=={}/{}", success, msg);
-
-		if (success.equals(SUCCESS)) {
-			JsonNode jnResults = node.get("result").get("execution-results");
-
-			if (jnResults.has("results")) {
-				JsonNode r = jnResults.get("results");
-				JsonNode rr = r.get(0).get("value").get(KEY);
-				car.setType(rr.get("type").asText(DEFAULT));
-				car.setColor(rr.get("color").asText(DEFAULT));
-				LOG.info("car.toString: {}", car.toString());
-			}
-		} else {
-			LOG.info("no success; nothing to do");
-		}
+		car.setType(jnResult.get("type").asText());
+		car.setColor(jnResult.get("color").asText());
+		LOG.info("car.toString: {}", car.toString());
 
 		LOG.info("About to leave method deserialize");
 		return car;

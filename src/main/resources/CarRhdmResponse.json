@@ -8,7 +8,7 @@
           "value": {
             "mil.mgae.rules.carloan.Car": {
               "type": "Toyota",
-              "color": "White"
+              "color": "Gray"
             }
           },
           "key": "response"
