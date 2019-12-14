@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class App {
@@ -17,6 +18,7 @@ public class App {
 		pracWriteJson();
 		pracReadJson();
 		pracReadJsonFile();
+		pracReadRhdmResponse();
 	}
 
 	/**
@@ -40,7 +42,8 @@ public class App {
 	}
 
 	/**
-	 * a simple example of converting a JSON String to a Java object using the ObjectMapper class:
+	 * a simple example of converting a JSON String to a Java object using the
+	 * ObjectMapper class:
 	 */
 	private static void pracReadJson() {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -55,12 +58,13 @@ public class App {
 			LOG.info("{}", e.getMessage());
 		} catch (IOException e) {
 			LOG.info("{}", e.getMessage());
-		}  
+		}
 	}
 
 	/**
-	 * a simple example of converting a JSON String to a Java object using the ObjectMapper class:
-	 * The readValue() function also accepts other forms of input like a file containing JSON string:
+	 * a simple example of converting a JSON String to a Java object using the
+	 * ObjectMapper class: The readValue() function also accepts other forms of
+	 * input like a file containing JSON string:
 	 */
 	private static void pracReadJsonFile() {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -78,16 +82,39 @@ public class App {
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
 			LOG.info("{}", e.getMessage());
-		}  
+		}
 	}
-	
+
 	private static void pracReadRhdmResponse() {
 		ObjectMapper objectMapper = new ObjectMapper();
-		String filename = "src/main/resources/rhdmresponse.json";
+		String filename = "src/main/resources/CarRhdmResponse.json";
+		final String KEY = "mil.mgae.rules.carloan.Car";
+
 		try {
-			Car car = objectMapper.readValue(new File(filename), Car.class);
-			LOG.info("car.color is Red? {}", ("Red".equals(car.getColor())));
-			LOG.info("car.type is GM? {}", ("GM".equals(car.getType())));
+			File file = new File(filename);
+			JsonNode jn = objectMapper.readTree(file);
+			String success = jn.get("type").asText("");
+			String msg = jn.get("msg").asText("");
+			JsonNode jnExecutionResults = jn.get("result").get("execution-results");
+			boolean hasResults = jnExecutionResults.has("results");
+			Car car = new Car();
+
+			if (hasResults) {
+				JsonNode a = jnExecutionResults.get("results");
+				JsonNode b = a.get(0).get("value").get(KEY);
+				car.setType(b.get("type").asText(""));
+				car.setColor(b.get("color").asText(""));
+			} else {
+				LOG.info("execution-results has no results");
+				car = null;
+			}
+
+			LOG.info("success/msg: {}/{}", success, msg);
+			LOG.info("hasResults: {}", hasResults);
+
+			if (car != null) {
+				LOG.info("car.toString: {}", car.toString());
+			}
 		} catch (JsonGenerationException e) {
 			LOG.debug("JsonGenerationException");
 			LOG.info("{}", e.getMessage());
@@ -97,6 +124,6 @@ public class App {
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
 			LOG.info("{}", e.getMessage());
-		}  
+		}
 	}
 }

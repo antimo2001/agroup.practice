@@ -14,27 +14,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 public class RhdmResponse<T> {
-    private static final Logger LOG = LoggerFactory.getLogger(RhdmResponse.class);
+	private static final Logger LOG = LoggerFactory.getLogger(RhdmResponse.class);
 
-	private List<T> results;
+	private List<T> data;
 	private String msg;
 	private boolean success;
 
 	public RhdmResponse() {
-		this.results = new ArrayList<T>();
+		this.data = new ArrayList<T>();
 		this.success = false;
 	}
 
 	public List<T> getData() {
-		return results;
+		return data;
 	}
 
 	public void add(T elem) {
-		this.results.add(elem);
+		this.data.add(elem);
 	}
 
 	public void addAll(Collection<T> elems) {
-		this.results.addAll(elems);
+		this.data.addAll(elems);
 	}
 
 	public String getMsg() {

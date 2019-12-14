@@ -1,0 +1,29 @@
+{
+  "type": "SUCCESS",
+  "msg": "Container CarLoanAssistance_1.1.0 successfully called.",
+  "result": {
+    "execution-results": {
+      "results": [
+        {
+          "value": {
+            "mil.mgae.rules.carloan.Car": {
+              "type": "Honda",
+              "color": "Green"
+            }
+          },
+          "key": "response"
+        }
+      ],
+      "facts": [
+        {
+          "value": {
+            "org.drools.core.common.DefaultFactHandle": {
+              "external-form": "0:4:2116229263:2116229263:4:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject"
+            }
+          },
+          "key": "response"
+        }
+      ]
+    }
+  }
+}
