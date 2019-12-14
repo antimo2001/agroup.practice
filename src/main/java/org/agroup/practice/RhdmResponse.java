@@ -23,15 +23,15 @@ public class RhdmResponse<T> {
 	// TODO @Reference RhdmDeserializer
 	private RhdmDeserializer<T> deserializer;
 
-	public RhdmResponse(RhdmDeserializer<T> deserializer) {
+	public RhdmResponse() {
 		this.data = null;
-		this.deserializer = deserializer;
 	}
 
 	public T read(File rawJson, Class<T> clazz) throws JsonParseException, JsonMappingException, IOException {
 		LOG.info("Begin method read");
 		ObjectMapper mapper = new ObjectMapper();
 		Version version = new Version(1, 0, 0, null, null, null);
+		LOG.info("clazz.getName: {}", clazz.getName());
 		SimpleModule module = new SimpleModule(clazz.getName(), version);
 
 		module.addDeserializer(clazz, deserializer);
@@ -41,6 +41,10 @@ public class RhdmResponse<T> {
 
 		LOG.info("About to leave method read");
 		return this.data;
+	}
+
+	public void setDeserializer(RhdmDeserializer<T> deserializer) {
+		this.deserializer = deserializer;
 	}
 
 	public T getData() {

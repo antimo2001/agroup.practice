@@ -17,12 +17,10 @@ public class CarRhdmDeserializer extends RhdmDeserializer<Car> {
 
 	public CarRhdmDeserializer() {
 		this(null);
-		this.responseFactName = "mil.mgae.rules.carloan.Car";
 	}
 
 	public CarRhdmDeserializer(Class<?> clazz) {
 		super(clazz);
-		this.responseFactName = "mil.mgae.rules.carloan.Car";
 	}
 
 	@Override
@@ -39,6 +37,14 @@ public class CarRhdmDeserializer extends RhdmDeserializer<Car> {
 
 		LOG.info("About to leave method deserialize");
 		return car;
+	}
+
+	@Override
+	protected String getResponseFactName() {
+		LOG.info("Entered method getResponseFactName");
+		String responseFactName = "mil.mgae.rules.carloan.Car";
+		LOG.info("About to leave method getResponseFactName");
+		return responseFactName;
 	}
 
 }
