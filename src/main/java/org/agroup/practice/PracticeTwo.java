@@ -47,6 +47,10 @@ public class PracticeTwo {
 		LOG.info("About to leave method pracReadCar");
 	}
 
+	/**
+	 * practice Jackson's custom Deserializer and POJO with LoanrRhdmDeserializer;
+	 * utilizes generic RhdmResponse
+	 */
 	public static void pracReadLoan() {
 		LOG.info("Begin method pracReadLoan");
 		String filename = "src/main/resources/LoanRhdmResponse.json";
@@ -69,6 +73,7 @@ public class PracticeTwo {
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
 			LOG.info("{}", e.getMessage());
+			throw new RuntimeException(e);
 		}
 		LOG.info("About to leave method pracReadLoan");
 	}

@@ -56,4 +56,9 @@ public class Loan {
 	public void setExpireDate(Date expireDate) {
 		this.expireDate = expireDate;
 	}
+
+	@Override
+	public String toString() {
+		return amount.toString() + "," + interestRate.toString() + "," + term + "," + termUnits + "," + expireDate;
+	}
 }
