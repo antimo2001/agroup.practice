@@ -16,11 +16,20 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 	private static final Logger LOG = LoggerFactory.getLogger(RhdmDeserializer.class);
 	private static final long serialVersionUID = 1L;
 	protected static final String DATE_PATTERN = "dd-MM-yyyy hh:mm:ss";
-	protected static final String SUCCESS = "SUCCESS";
-	protected static final String DEFAULT = "SystemDefault";
+
+	public static final String SUCCESS = "SUCCESS";
+	public static final String SYSTEM_DEFAULT = "SystemDefault";
 
 	protected String success;
 	protected String msg;
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public String getMsg() {
+		return this.msg;
+	}
 
 	public RhdmDeserializer() {
 		this(null);
@@ -42,8 +51,8 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 		ObjectCodec codec = parser.getCodec();
 		JsonNode jnRoot = codec.readTree(parser);
 
-		String success = jnRoot.get("type").asText(DEFAULT);
-		String msg = jnRoot.get("msg").asText(DEFAULT);
+		String success = jnRoot.get("type").asText(SYSTEM_DEFAULT);
+		String msg = jnRoot.get("msg").asText(SYSTEM_DEFAULT);
 
 		LOG.info("success/msg=={}/{}", success, msg);
 
@@ -57,7 +66,7 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 				JsonNode r = jnExecution.get("results");
 				retVal = r.get(0).get("value").get(responseFactName);
 			} else {
-				LOG.info("no jnResults; nothing to do");
+				LOG.info("no exeuction-results.results; nothing to do");
 			}
 		} else {
 			LOG.info("no success; nothing to do");
