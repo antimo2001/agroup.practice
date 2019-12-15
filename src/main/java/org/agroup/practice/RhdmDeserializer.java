@@ -16,6 +16,8 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 	private static final Logger LOG = LoggerFactory.getLogger(RhdmDeserializer.class);
 	private static final long serialVersionUID = 1L;
 	protected static final String DATE_PATTERN = "dd-MM-yyyy hh:mm:ss";
+	protected static final String SUCCESS = "SUCCESS";
+	protected static final String DEFAULT = "SystemDefault";
 
 	protected String success;
 	protected String msg;
@@ -36,9 +38,6 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 
 	protected JsonNode getResultNode(JsonParser parser) throws IOException {
 		LOG.info("Entered method getResultNode");
-		final String SUCCESS = "SUCCESS";
-		final String DEFAULT = "SystemDefault";
-		final String KEY = this.getResponseFactName();
 
 		ObjectCodec codec = parser.getCodec();
 		JsonNode jnRoot = codec.readTree(parser);
@@ -48,14 +47,15 @@ public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 
 		LOG.info("success/msg=={}/{}", success, msg);
 
+		String responseFactName = this.getResponseFactName();
 		JsonNode retVal = jnRoot;
 
 		if (success.equals(SUCCESS)) {
-			retVal = jnRoot.get("result").get("execution-results");
+			JsonNode jnExecution = jnRoot.get("result").get("execution-results");
 
-			if (retVal.has("results")) {
-				JsonNode r = retVal.get("results");
-				retVal = r.get(0).get("value").get(KEY);
+			if (jnExecution.has("results")) {
+				JsonNode r = jnExecution.get("results");
+				retVal = r.get(0).get("value").get(responseFactName);
 			} else {
 				LOG.info("no jnResults; nothing to do");
 			}

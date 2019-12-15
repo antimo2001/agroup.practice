@@ -3,8 +3,6 @@ package org.agroup.practice;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Loan {
 
 	private BigDecimal amount = BigDecimal.ZERO;
@@ -48,7 +46,6 @@ public class Loan {
 		this.termUnits = termUnits;
 	}
 
-	@JsonDeserialize(using = DateRhdmDeserializer.class)
 	public Date getExpireDate() {
 		return expireDate;
 	}

@@ -10,41 +10,48 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.liferay.portal.kernel.json.JSONFactoryUtil;
-//import com.liferay.portal.kernel.log.Log;
-//import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 public class RhdmResponse<T> {
 	private static final Logger LOG = LoggerFactory.getLogger(RhdmResponse.class);
 
 	private T data;
-
-	// TODO @Reference RhdmDeserializer
-	private RhdmDeserializer<T> deserializer;
+	private Class<T> clazz;
+	private ObjectMapper objectMapper;
+	private boolean isPreparedToRead;
 
 	public RhdmResponse() {
-		this.data = null;
+		this.isPreparedToRead = false;
 	}
 
-	public T read(File rawJson, Class<T> clazz) throws JsonParseException, JsonMappingException, IOException {
+	public T read(File rawJson) throws JsonParseException, JsonMappingException, IOException {
 		LOG.info("Begin method read");
-		ObjectMapper mapper = new ObjectMapper();
-		Version version = new Version(1, 0, 0, null, null, null);
-		LOG.info("clazz.getName: {}", clazz.getName());
-		SimpleModule module = new SimpleModule(clazz.getName(), version);
 
-		module.addDeserializer(clazz, deserializer);
-		mapper.registerModule(module);
-
-		this.data = mapper.readValue(rawJson, clazz);
+		if (this.isPreparedToRead) {
+			this.data = this.objectMapper.readValue(rawJson, this.clazz);
+		} else {
+			LOG.info("cannot read without being prepared: {}", this.isPreparedToRead);
+		}
 
 		LOG.info("About to leave method read");
 		return this.data;
 	}
 
-	public void setDeserializer(RhdmDeserializer<T> deserializer) {
-		this.deserializer = deserializer;
+	public void prepareToRead(Class<T> clazz, RhdmDeserializer<T> deserializer) {
+		LOG.info("Entered method prepareToRead");
+
+		Version version = new Version(1, 0, 0, null, null, null);
+		LOG.info("clazz.getName: {}", clazz.getName());
+		SimpleModule module = new SimpleModule(clazz.getName(), version);
+		module.addDeserializer(clazz, deserializer);
+
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(module);
+
+		this.clazz = clazz;
+		this.objectMapper = mapper;
+		this.isPreparedToRead = true;
+		LOG.info("About to leave method prepareToRead");
 	}
 
 	public T getData() {

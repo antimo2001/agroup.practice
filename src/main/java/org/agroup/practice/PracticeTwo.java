@@ -27,9 +27,9 @@ public class PracticeTwo {
 
 		try {
 			File rawJson = new File(filename);
-			RhdmResponse<Car> rhdmResponse = new RhdmResponse<Car>();
-			rhdmResponse.setDeserializer(new CarRhdmDeserializer());
-			Car car = rhdmResponse.read(rawJson, Car.class);
+			RhdmResponse<Car> rhdmResponse = new RhdmResponse<>();
+			rhdmResponse.prepareToRead(Car.class, new CarRhdmDeserializer());
+			Car car = rhdmResponse.read(rawJson);
 
 			if (car != null) {
 				LOG.info("car.toString: {}", car.toString());
@@ -57,9 +57,9 @@ public class PracticeTwo {
 
 		try {
 			File rawJson = new File(filename);
-			RhdmResponse<Loan> rhdmResponse = new RhdmResponse<Loan>();
-			rhdmResponse.setDeserializer(new LoanRhdmDeserializer());
-			Loan loan = rhdmResponse.read(rawJson, Loan.class);
+			RhdmResponse<Loan> rhdmResponse = new RhdmResponse<>();
+			rhdmResponse.prepareToRead(Loan.class, new LoanRhdmDeserializer());
+			Loan loan = rhdmResponse.read(rawJson);
 
 			if (loan != null) {
 				LOG.info("loan.toString: {}", loan.toString());
