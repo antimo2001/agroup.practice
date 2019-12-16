@@ -67,10 +67,10 @@ public class PracticeOne {
 			LOG.info("car.color is Red? {}", ("Red".equals(car.getColor())));
 			LOG.info("car.type is GM? {}", ("GM".equals(car.getType())));
 		} catch (JsonGenerationException e) {
-			LOG.debug("JsonGenerationException");
+			LOG.info("JsonGenerationException");
 			LOG.info("{}", e.getMessage());
 		} catch (JsonMappingException e) {
-			LOG.debug("JsonMappingException");
+			LOG.info("JsonMappingException");
 			LOG.info("{}", e.getMessage());
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
@@ -109,10 +109,10 @@ public class PracticeOne {
 				LOG.info("car.toString: {}", car.toString());
 			}
 		} catch (JsonGenerationException e) {
-			LOG.debug("JsonGenerationException");
+			LOG.info("JsonGenerationException");
 			LOG.info("{}", e.getMessage());
 		} catch (JsonMappingException e) {
-			LOG.debug("JsonMappingException");
+			LOG.info("JsonMappingException");
 			LOG.info("{}", e.getMessage());
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");

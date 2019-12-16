@@ -36,10 +36,10 @@ public class PracticeTwo {
 				LOG.info("car.toString: {}", car.toString());
 			}
 		} catch (JsonGenerationException e) {
-			LOG.debug("JsonGenerationException");
+			LOG.info("JsonGenerationException");
 			LOG.info("{}", e.getMessage());
 		} catch (JsonMappingException e) {
-			LOG.debug("JsonMappingException");
+			LOG.info("JsonMappingException");
 			LOG.info("{}", e.getMessage());
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
@@ -66,10 +66,10 @@ public class PracticeTwo {
 				LOG.info("loan.toString: {}", loan.toString());
 			}
 		} catch (JsonGenerationException e) {
-			LOG.debug("JsonGenerationException");
+			LOG.info("JsonGenerationException");
 			LOG.info("{}", e.getMessage());
 		} catch (JsonMappingException e) {
-			LOG.debug("JsonMappingException");
+			LOG.info("JsonMappingException");
 			LOG.info("{}", e.getMessage());
 		} catch (IOException e) {
 			LOG.error("unexpected IOException");
