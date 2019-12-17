@@ -9,8 +9,8 @@
             "mil.mgae.rules.carloan.Loan": {
               "amount": 27989.1923,
               "interestRate": 20,
-              "term": 9,
-              "termUnits": "year",
+              "term": null,
+              "termUnits": null,
               "expireDate": "28-12-2024 02:30:00"
             }
           },

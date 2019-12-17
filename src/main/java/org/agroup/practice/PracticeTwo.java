@@ -23,7 +23,7 @@ public class PracticeTwo {
 	 */
 	public static void pracReadCar() {
 		LOG.info("Begin method pracReadCar");
-		String filename = "src/main/resources/CarRhdmResponse.json";
+		String filename = "src/main/resources/data/CarRhdmResponse.json";
 
 		try {
 			File rawJson = new File(filename);
@@ -54,7 +54,7 @@ public class PracticeTwo {
 	 */
 	public static void pracReadLoan() {
 		LOG.info("Begin method pracReadLoan");
-		String filename = "src/main/resources/LoanRhdmResponse.json";
+		String filename = "src/main/resources/data/LoanRhdmResponse.json";
 
 		try {
 			File rawJson = new File(filename);
