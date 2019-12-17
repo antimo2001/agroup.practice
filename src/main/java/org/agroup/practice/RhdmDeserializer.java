@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 public abstract class RhdmDeserializer<T> extends StdDeserializer<T> {
 	private static final Logger LOG = LoggerFactory.getLogger(RhdmDeserializer.class);
 	private static final long serialVersionUID = 1L;
-	protected static final String DATE_PATTERN = "dd-MM-yyyy hh:mm:ss";
+	protected static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
 	public static final String SUCCESS = "SUCCESS";
 	public static final String SYSTEM_DEFAULT = "SystemDefault";
