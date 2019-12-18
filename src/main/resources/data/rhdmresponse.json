@@ -7,18 +7,18 @@
         {
           "value": {
             "mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject": {
-              "rejReason": "Student is not registered at home school",
-              "finAsst": 1979.99,
-              "studOblg": 0,
-              "totalAsstRequested": 1979.99,
-              "totalHoursRequested": 9,
+              "rejReason": "Student has not registered at their home school",
+              "finAsst": null,
+              "studOblg": null,
+              "totalAsstRequested": null,
+              "totalHoursRequested": 0,
               "updatedPreDPHours": 0,
-              "updatedUsedAsst": 1979.99,
-              "updatedUsedHours": 9,
-              "maxAsst": 4000,
-              "maxHourlyCost": 250,
-              "maxHours": 16,
-              "maxPreDPHours": 6,
+              "updatedUsedAsst": null,
+              "updatedUsedHours": 0,
+              "maxAsst": null,
+              "maxHourlyCost": null,
+              "maxHours": 0,
+              "maxPreDPHours": 0,
               "autoApproval": false,
               "lastUpdatedDate": null
             }
@@ -30,7 +30,7 @@
         {
           "value": {
             "org.drools.core.common.DefaultFactHandle": {
-              "external-form": "0:4:2116229263:2116229263:4:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject"
+              "external-form": "0:2:1999236477:1999236477:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject"
             }
           },
           "key": "response"
