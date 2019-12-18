@@ -1,0 +1,5 @@
+{
+  "type": "FAILURE",
+  "msg": "Error calling container TuitionAssistance_1.1.0: Exception executing consequence for rule \"receivedPkRule\" in mil.army.hrc.mgae.rules.tuitionassistance: [Error: courseMethod( $req.pkList ): null]\n[Near : {... LOG = LoggerFactory.getLogger( ....}]\n             ^\n[Line: 1, Column: 1]",
+  "result": null
+}
