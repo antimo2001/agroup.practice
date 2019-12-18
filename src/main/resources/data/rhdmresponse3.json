@@ -1,0 +1,41 @@
+{
+    "type": "SUCCESS",
+    "msg": "Container TuitionAssistance_1.1.0 successfully called.",
+    "result": {
+      "execution-results": {
+        "results": [
+          {
+            "value": {
+              "mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject": {
+                "rejReason": null,
+                "finAsst": 750.0000000000000000,
+                "studOblg": 0,
+                "totalAsstRequested": 750.000000000,
+                "totalHoursRequested": 3,
+                "updatedPreDPHours": 0,
+                "updatedUsedAsst": 3000.0000000000000000,
+                "updatedUsedHours": 12,
+                "maxAsst": 4000.00,
+                "maxHourlyCost": 250.00,
+                "maxHours": 16,
+                "maxPreDPHours": 6,
+                "autoApproval": false,
+                "lastUpdatedDate": 1574121600000
+              }
+            },
+            "key": "response"
+          }
+        ],
+        "facts": [
+          {
+            "value": {
+              "org.drools.core.common.DefaultFactHandle": {
+                "external-form": "0:2:814300761:814300761:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject"
+              }
+            },
+            "key": "response"
+          }
+        ]
+      }
+    }
+  }
