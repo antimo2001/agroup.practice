@@ -35,7 +35,11 @@ public class RhdmResponse<T> {
 
 	public void setData(T data) {
 		LOG.info("Entered method setData");
-		LOG.info("Parameterized type class name=={}", data.getClass().getName());
+		if (data != null) {
+			LOG.info("Parameterized type class name=={}", data.getClass().getName());
+		} else {
+			LOG.info("Parameterized type class name IS NULL because this.data IS NULL");
+		}
 		this.data = data;
 		LOG.info("About to leave method setData");
 	}

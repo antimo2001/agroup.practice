@@ -132,4 +132,23 @@ public class Tuition {
 		this.lastUpdatedDate = lastUpdatedDate;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(rejReason.toString() + ",");
+		sb.append(finAsst.toString() + ",");
+		sb.append(studOblg.toString() + ",");
+		sb.append(totalAsstRequested.toString() + ",");
+		sb.append(totalHoursRequested.toString() + ",");
+		sb.append(updatedPreDPHours.toString() + ",");
+		sb.append(updatedUsedAsst.toString() + ",");
+		sb.append(updatedUsedHours.toString() + ",");
+		sb.append(maxAsst.toString() + ",");
+		sb.append(maxHourlyCost.toString() + ",");
+		sb.append(maxHours.toString() + ",");
+		sb.append(maxPreDPHours.toString() + ",");
+		sb.append(String.format("%s", autoApproval) + ",");
+		sb.append(lastUpdatedDate.toString());
+		return sb.toString();
+	}
 }

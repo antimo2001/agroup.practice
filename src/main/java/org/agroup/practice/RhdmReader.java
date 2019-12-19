@@ -37,8 +37,9 @@ public class RhdmReader<T> {
 
 			String msg = this.rhdmDeserializer.getMsg();
 			String success = this.rhdmDeserializer.getSuccess();
+			boolean successFlag = success.equalsIgnoreCase(RhdmDeserializer.SUCCESS) && rawData != null;
 			rhdmResponse.setMsg(msg);
-			rhdmResponse.setSuccess(success.equalsIgnoreCase(RhdmDeserializer.SUCCESS));
+			rhdmResponse.setSuccess(successFlag);
 			LOG.info("rhdmResponse.getMsg=={}", msg);
 			LOG.info("rhdmResponse.isSuccess? {}", success);
 		} else {
