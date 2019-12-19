@@ -6,7 +6,7 @@
       "results": [
         {
           "value": {
-            "mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject": {
+            "mil.mgae.rules.carloan.Tuition": {
               "rejReason": "Student has not registered at their home school",
               "finAsst": null,
               "studOblg": null,

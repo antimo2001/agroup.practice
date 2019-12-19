@@ -6,7 +6,7 @@
         "results": [
           {
             "value": {
-              "mil.army.hrc.mgae.rules.tuitionassistance.ResponseObject": {
+              "mil.mgae.rules.carloan.Tuition": {
                 "rejReason": null,
                 "finAsst": 1750.0000000000000000,
                 "studOblg": 500.0000000000000000,
