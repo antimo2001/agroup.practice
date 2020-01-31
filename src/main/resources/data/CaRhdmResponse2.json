@@ -1,0 +1,36 @@
+{
+  "type": "SUCCESS",
+  "msg": "Container CredentialAssistance_1.0.0 successfully called.",
+  "result": {
+    "execution-results": {
+      "results": [
+        {
+          "value": {
+            "mil.army.hrc.mgae.rules.credentialassistance.ResponseObject": {
+              "lastUpdatedDate": null,
+              "rejReason": null,
+              "studOblg": 0,
+              "maxAsst": 4000.00,
+              "requestAmtCovered": 386.00,
+              "usedTaAsst": 0E-16,
+              "usedCaAsst": 386.00,
+              "sumUsedAsst": 386.0000000000000000,
+              "sumMaterialCost": 386.00
+            }
+          },
+          "key": "response"
+        }
+      ],
+      "facts": [
+        {
+          "value": {
+            "org.drools.core.common.DefaultFactHandle": {
+              "external-form": "0:2:1041462968:1041462968:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.credentialassistance.ResponseObject"
+            }
+          },
+          "key": "response"
+        }
+      ]
+    }
+  }
+}
