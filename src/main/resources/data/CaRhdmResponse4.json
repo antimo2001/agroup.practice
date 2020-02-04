@@ -9,13 +9,13 @@
 			  "mil.army.hrc.mgae.rules.credentialassistance.ResponseObject": {
 				"lastUpdatedDate": null,
 				"rejReason": null,
-				"studOblg": 136396.0000000000000000,
+				"studOblg": 476.0000000000000000,
 				"maxAsst": 4000.00,
 				"requestAmtCovered": 4000.0000000000000000,
 				"usedTaAsst": 0E-16,
 				"usedCaAsst": 4000.0000000000000000,
 				"sumUsedAsst": 0E-16,
-				"sumMaterialCost": 140396.00
+				"sumMaterialCost": 4476.00
 			  }
 			},
 			"key": "response"
@@ -25,7 +25,7 @@
 		  {
 			"value": {
 			  "org.drools.core.common.DefaultFactHandle": {
-				"external-form": "0:2:778910916:778910916:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.credentialassistance.ResponseObject"
+				"external-form": "0:2:240727572:240727572:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.credentialassistance.ResponseObject"
 			  }
 			},
 			"key": "response"

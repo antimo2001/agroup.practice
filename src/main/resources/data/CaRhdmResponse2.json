@@ -11,11 +11,11 @@
               "rejReason": null,
               "studOblg": 0,
               "maxAsst": 4000.00,
-              "requestAmtCovered": 386.00,
+              "requestAmtCovered": 466.00,
               "usedTaAsst": 0E-16,
-              "usedCaAsst": 386.00,
-              "sumUsedAsst": 386.0000000000000000,
-              "sumMaterialCost": 386.00
+              "usedCaAsst": 466.00,
+              "sumUsedAsst": 466.0000000000000000,
+              "sumMaterialCost": 466.00
             }
           },
           "key": "response"
@@ -25,7 +25,7 @@
         {
           "value": {
             "org.drools.core.common.DefaultFactHandle": {
-              "external-form": "0:2:1041462968:1041462968:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.credentialassistance.ResponseObject"
+              "external-form": "0:2:621163008:621163008:2:DEFAULT:NON_TRAIT:mil.army.hrc.mgae.rules.credentialassistance.ResponseObject"
             }
           },
           "key": "response"
